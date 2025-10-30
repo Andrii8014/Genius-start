@@ -1,0 +1,33 @@
+body {
+  background-color: #faf4ea;
+}
+.start-menu {
+  background-image: url(img/background-images/image-1559.jpg);
+  width: 1440px;
+  height: 798px;
+}
+.call-button {
+  background-color: #973a3a;
+}
+.formats {
+  width: 1240px;
+  height: 651px;
+}
+.input-page {
+  width: 1240px;
+  height: 601px;
+}
+.maps {
+  border-radius: 16px;
+  width: 603px;
+  height: 595px;
+}
+footer {
+  background-image: url(img/image\ 1564.png);
+  width: 1440px;
+  height: 240px;
+}
+.footer-info {
+  width: 1239px;
+  height: 176px;
+}
