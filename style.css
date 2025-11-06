@@ -1,33 +1,108 @@
+:root {
+  --color-primary-dark: #31261a;
+  --color-primary-light: #faf4ea;
+  --color-brand-dark: #465929;
+  --color-brand-light: #819b57;
+}
+/*BASE styles */
 body {
-  background-color: #faf4ea;
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
 }
-.start-menu {
-  background-image: url(img/background-images/image-1559.jpg);
-  width: 1440px;
-  height: 798px;
+ul {
+  list-style-type: none;
 }
-.call-button {
-  background-color: #973a3a;
+/* Button styles */
+.button {
+  color: var(--color-primary-light);
+  background-color: var(--color-brand-light);
+  border: 2px solid var(--color-brand-light);
+  border-radius: 8px;
+  cursor: pointer;
 }
-.formats {
-  width: 1240px;
-  height: 651px;
+button:hover {
+  color: var(--color-brand-light);
+  background-color: transparent;
 }
-.input-page {
-  width: 1240px;
-  height: 601px;
+/* Link styles */
+.menu-link {
+  color: var(--color-primary-light);
+  text-decoration: none;
 }
-.maps {
-  border-radius: 16px;
-  width: 603px;
-  height: 595px;
+.menu-link:hover {
+  color: var(--color-brand-light);
 }
-footer {
-  background-image: url(img/image\ 1564.png);
-  width: 1440px;
-  height: 240px;
+/* Hero title styles */
+.hero-title {
+  color: var(--color-primary-light);
 }
-.footer-info {
-  width: 1239px;
-  height: 176px;
+.hero-title .accent {
+  color: var(--color-brand-light);
+}
+/* Advantages list styles */
+.advantages-list {
+  color: var(--color-primary-light);
+  background-color: var(--color-brand-light);
+}
+/* new-format styles */
+.new-format-title {
+  color: var(--color-primary-dark);
+}
+.new-format-item {
+  color: var(--color-primary-dark);
+}
+.new-format-item .accent {
+  color: var(--color-brand-light);
+}
+.baker-man-images {
+  border-radius: 400px 400px 0 0;
+  width: 393px;
+  height: 466px;
+}
+/* chefs styles */
+.chefs-title {
+  color: var(--color-primary-dark);
+}
+.chefs-title .accent {
+  color: var(--color-brand-light);
+}
+.chefs-img {
+  border-radius: 4px 4px 4px 200px;
+  width: 240px;
+  height: 390px;
+}
+
+.chefs-title {
+  color: var(--color-primary-dark);
+}
+.chefs-title .accent {
+  color: var(--color-brand-light);
+}
+.chefs-description {
+  color: var(--color-primary-dark);
+}
+/* Formats styles */
+.formats-title {
+  color: var(--color-primary-dark);
+}
+.bakery-title {
+  color: var(--color-primary-light);
+}
+.bakery-descr {
+  color: var(--color-primary-light);
+}
+/* Contacts styles */
+.contacts-title {
+  color: var(--color-primary-dark);
+}
+.contacts-descr {
+  color: var(--color-brand-dark);
+}
+.button-descr {
+  color: var(--color-primary-dark);
+}
+/* Footer styles */
+.footer-nav-link {
+  color: var(--color-primary-light);
+  text-decoration: none;
 }
