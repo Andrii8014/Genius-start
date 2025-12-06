@@ -30,18 +30,21 @@
   --color-brand-light: #819b57;
   --color-pseudo-light: #cfcfbc;
   --color-pseudo-dark: #a18268;
+  --color-for-slider: #d9d9d9;
 }
 
 /*BASE styles */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 body {
   color: var(--color-primary-dark);
   background-color: var(--color-primary-light);
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
+  /* font-size: 18px;
+  font-weight: 400; */
   line-height: 1.5;
   margin: 0;
 }
@@ -53,6 +56,9 @@ h5,
 h6,
 p {
   margin-top: 0;
+}
+a {
+  display: inline-block;
 }
 address {
   font-style: normal;
@@ -153,11 +159,17 @@ button:hover {
   color: var(--color-primary-light);
   background-color: var(--color-brand-light);
 }
-.traditions-content {
-  max-width: 710px;
-}
 
 /* new-format styles */
+.traditions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 104px;
+}
+.traditions-content {
+  max-width: 708px;
+}
 .new-format-title {
   margin-bottom: 42px;
 }
@@ -183,26 +195,42 @@ button:hover {
 }
 
 /* chefs styles */
+.chefs-title-container {
+  position: relative;
+}
 .chefs-title {
+  /* position: relative; */
   max-width: 538px;
-  margin-bottom: 80px;
+  margin: 0 auto 80px;
   text-align: center;
 }
 .chefs-title::before,
 .chefs-title::after {
   display: block;
+  position: absolute;
+  bottom: 24px;
   width: 352px;
   border: 2px solid var(--color-pseudo-light);
   content: '';
 }
-
+.chefs-title::before {
+  left: 0;
+}
+.chefs-title::after {
+  right: 0;
+}
+.chefs-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px 30px;
+}
+.chefs-item {
+  flex-basis: calc((100% - 30px) / 2);
+}
 .chefs-article {
   display: flex;
-}
-.chef-descr-senction {
-  padding-bottom: 125px;
-  padding-left: 30px;
-  justify-content: space-between;
+  gap: 30px;
 }
 
 /* Advantages list styles */
@@ -228,22 +256,28 @@ button:hover {
     -16px 16px 2px 1px var(--color-pseudo-dark);
   width: 240px;
   height: 390px;
-  margin: 40px;
 }
 .chef-title {
   margin-bottom: 16px;
   font-size: 40px;
   font-weight: 600;
 }
-
 .chefs-description {
   font-weight: 400;
   font-size: 18px;
+  margin-bottom: 24px;
 }
-
+.chefs-description p:last-child {
+  margin-bottom: 0;
+}
 /* Bakery styles */
 .format-title {
   text-align: center;
+}
+.bakery-formats-slider {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 .bakery-format-list {
   display: flex;
@@ -275,19 +309,45 @@ button:hover {
   font-weight: 300;
   font-size: 14px;
 }
+/* slider-button */
+.slider-button {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  fill: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-dark);
+  cursor: pointer;
+}
+.slider-button:hover {
+  background-color: var(--color-primary-dark);
+  fill: var(--color-primary-light);
+}
 
 /* Contacts styles */
+.contacts-section {
+  padding-bottom: 96px;
+}
 .contacts-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+  gap: 32px;
 }
 .contact-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 24px;
+}
+.contact-input-container {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 16px;
 }
 .contact-title {
   margin-bottom: 16px;
@@ -297,7 +357,10 @@ button:hover {
   font-weight: 400;
   font-size: 18px;
 }
-
+.contact-input {
+  min-width: 605px;
+  gap: 24px;
+}
 .button-descr {
   display: flex;
   align-self: center;
@@ -309,47 +372,87 @@ button:hover {
 .maps {
   width: 100px;
   min-width: 603px;
+  border-radius: 16px;
+  border: none;
 }
 /* Footer styles */
 .footer {
+  position: relative;
   background-image: url(img/background-images/footer.png);
   background-color: var(--color-primary-dark);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  padding: 32px 0;
+}
+.footer::before,
+.footer::after {
+  position: absolute;
+  bottom: 0;
+  background-repeat: no-repeat;
+  content: '';
+}
+.footer::before {
+  width: 180px;
+  height: 120px;
+  left: 0;
+  background-image: url('../img/decor-bread-small.png');
+}
+.footer::after {
+  width: 378px;
+  height: 186px;
+  right: 0;
+  background-image: url('../img/decor-bread-large.png');
 }
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  padding: 32px 0;
+  gap: 20px;
+  padding: 16px;
+  /* justify-content: space-between;
+  padding: 16px 0; */
 }
-.footer-info {
+.footer-info,
+.footer-address {
+  flex-basis: 50%;
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  /* justify-content: space-between;
   align-items: center;
-  gap: 166px;
+  gap: 166px; */
 }
-.footer-logo {
-  display: flex;
-  align-self: start;
+.footer-logo,
+.footer-nav-list,
+.footer-list,
+.footer-copyright {
+  flex-grow: 1;
 }
 .footer-nav-list {
   display: flex;
   flex-direction: column;
-  align-self: start;
+  gap: 16px;
 }
-.footer-address {
+.footer-list {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 166px;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-link {
+  display: flex;
+  display: inline-block;
+  padding: 16px 22px 0 0;
+}
+.footer-icon {
+  fill: var(--color-primary-light);
+}
+.footer-icon:hover {
+  fill: var(--color-brand-light);
+  stroke: var(--color-primary-dark);
 }
 .footer-copyright {
   display: flex;
   flex-direction: column;
-  align-self: start;
+  gap: 16px;
 }
-
 .footer-nav-link {
   color: var(--color-primary-light);
   text-decoration: none;
@@ -361,6 +464,33 @@ button:hover {
 }
 .footer-copyright-item {
   color: var(--color-primary-light);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
+}
+
+/* Modal window styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-window {
+  position: relative;
+  width: 880px;
+  height: 880px;
+  background-color: var(--color-primary-light);
+  border-radius: 32px;
+}
+.modal-btn-close {
+  position: absolute;
+  top: 48px;
+  right: 48px;
 }
