@@ -48,6 +48,7 @@ body {
   line-height: 1.5;
   margin: 0;
 }
+
 h1,
 h2,
 h3,
@@ -104,11 +105,19 @@ button:hover {
 .menu-link {
   color: var(--color-primary-light);
   text-decoration: none;
+  transition: color 0.3s ease-in-out;
 }
 .menu-link:hover {
   color: var(--color-brand-light);
 }
 /* Header styles */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 32px;
+}
 .header-container {
   display: flex;
   align-items: center;
@@ -130,7 +139,13 @@ button:hover {
 /* Hero title styles */
 .hero-section {
   padding: 272px 0;
-  background-image: url('img/background-images/image-1559.jpg');
+  background-image: linear-gradient(
+      127deg,
+      rgba(18, 18, 17, 0.78) 0%,
+      rgba(18, 18, 17, 0.6) 63.89%,
+      rgba(18, 18, 17, 0) 100%
+    ),
+    url('img/background-images/image-1559.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -298,6 +313,10 @@ button:hover {
   );
   border-radius: 16px;
   border: 1px solid var(--color-brand-light); /* remove */
+  transition: transform 0.3s ease-in-out;
+}
+.bakery-format:hover {
+  transform: scale(1.05);
 }
 .bakery-title {
   color: var(--color-primary-light);
@@ -323,10 +342,19 @@ button:hover {
   fill: var(--color-primary-dark);
   border: 1px solid var(--color-primary-dark);
   cursor: pointer;
+  /* transition: background-color 1s color 1s;
+  transition-property: background-color;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+  transition-delay: 250ms; */
 }
 .slider-button:hover {
   background-color: var(--color-primary-dark);
   fill: var(--color-primary-light);
+}
+.right-button {
+  transform: rotate(0.5turn);
+  /* transform: rotate(180deg); */
 }
 
 /* Contacts styles */
@@ -342,33 +370,14 @@ button:hover {
   flex-direction: column;
   gap: 24px;
 }
-.contact-input-container {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 16px;
-}
 .contact-title {
   margin-bottom: 16px;
 }
 .contacts-descr {
   color: var(--color-brand-dark);
-  font-weight: 400;
-  font-size: 18px;
+  margin-bottom: 42px;
 }
-.contact-input {
-  min-width: 605px;
-  gap: 24px;
-}
-.button-descr {
-  display: flex;
-  align-self: center;
-  font-weight: 400;
-  font-size: 12px;
-  text-align: center;
-  color: var(--color-primary-dark);
-}
+
 .maps {
   width: 100px;
   min-width: 603px;
@@ -481,16 +490,87 @@ button:hover {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+  padding: 72px 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
-.modal-window {
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  /* display: none; */
+}
+.modal {
   position: relative;
-  width: 880px;
-  height: 880px;
+  max-width: 880px;
+  width: 100%;
+  max-height: 880px;
+  height: 100%;
+  padding: 128px;
   background-color: var(--color-primary-light);
   border-radius: 32px;
+  overflow-y: auto;
+}
+.modal-content::-webkit-scrollbar {
+  width: 0;
+  /* display: none; */
 }
 .modal-btn-close {
   position: absolute;
   top: 48px;
   right: 48px;
+}
+.form-field {
+  position: relative;
+  margin-bottom: 32px;
+}
+.form-label {
+  position: absolute;
+  left: 42px;
+  bottom: 16px;
+  color: var(--color-pseudo-dark);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* .form-field:focus-within .form-label {
+  transform: translate(-36px, -40px);
+} */
+/* .form-input:focus + .form-label {
+  transform: translate(-36px, -40px);
+  color: var(--color-primary-dark);
+} */
+
+.form-input {
+  padding: 16px 42px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.17;
+  border: 1px solid var(--color-pseudo-dark);
+  border-radius: 8px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.form-input:focus {
+  border-color: var(--color-brand-light);
+  outline: none;
+}
+.form-input::placeholder {
+  color: var(--color-pseudo-dark);
+}
+.contacts-button {
+  margin: 0 auto 24px;
+  display: block;
+}
+.button-descr {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+.button-descr-link {
+  color: var(--color-primary-dark);
+  text-underline-offset: 2px;
 }
